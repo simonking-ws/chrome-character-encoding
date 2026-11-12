@@ -41,9 +41,23 @@
 
 ## 安装
 
-1. 打开 `chrome://extensions/`
-2. 打开右上角「开发者模式」
-3. 点击「加载已解压的扩展程序」，选择本目录
+**方式一：下载发布包（推荐）**
+
+从 [Releases](https://github.com/simonking-ws/chrome-character-encoding/releases) 下载
+`chrome-character-encoding-1.0.0.zip`，解压后打开 `chrome://extensions/`，
+开启右上角「开发者模式」，点击「加载已解压的扩展程序」，选择解压出来的目录。
+
+**方式二：直接克隆源码**
+
+```bash
+git clone https://github.com/simonking-ws/chrome-character-encoding.git
+```
+
+然后在 `chrome://extensions/` 打开「开发者模式」→「加载已解压的扩展程序」，
+选择克隆下来的目录即可（无需 `npm install`，扩展本身零依赖）。
+
+> 正式版 Chrome 已禁用 `--load-extension` 命令行参数，
+> 因此自动化测试改用 CDP 的 `Extensions.loadUnpacked` 加载未打包扩展。
 
 ---
 

@@ -17,6 +17,9 @@ out.txt
 # 图标校验脚本生成的模拟图（每次跑测试都会重新生成）
 icons/toolbar-preview.png
 
+# 打包产物（发布到 Releases）
+dist/
+
 # 编辑器
 .vscode/
 .idea/
