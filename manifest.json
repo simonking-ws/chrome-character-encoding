@@ -1,0 +1,58 @@
+{
+  "manifest_version": 3,
+  "name": "Character Encoding 编码转换",
+  "version": "1.0.0",
+  "description": "检测网页真实使用的字符编码，并按指定编码重新解码显示；覆盖 UTF、GBK/GB18030、Big5、Shift_JIS、EUC-JP、EUC-KR 及各类单字节编码。",
+  "minimum_chrome_version": "116",
+
+  "permissions": ["storage", "scripting"],
+
+  "host_permissions": ["<all_urls>"],
+
+  "background": {
+    "service_worker": "src/background/service-worker.js"
+  },
+
+  "action": {
+    "default_title": "Character Encoding 编码转换",
+    "default_popup": "src/popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "all_frames": false,
+      "run_at": "document_idle",
+      "js": [
+        "src/lib/charsets.js",
+        "src/lib/legacy-tables.js",
+        "src/lib/gb18030-4byte.js",
+        "src/lib/text-codec.js",
+        "src/lib/detect.js",
+        "src/content/content-script.js"
+      ]
+    }
+  ],
+
+  "options_page": "src/options/options.html",
+
+  "commands": {
+    "_execute_action": {
+      "suggested_key": { "default": "Alt+Shift+E" },
+      "description": "打开编码转换面板"
+    }
+  }
+}

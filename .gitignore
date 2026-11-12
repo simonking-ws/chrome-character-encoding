@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# 测试与工具产生的中间文件
+out.txt
+*.log
+
+# 图标校验脚本生成的模拟图（每次跑测试都会重新生成）
+icons/toolbar-preview.png
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini

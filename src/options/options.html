@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>Character Encoding 选项</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <main>
+    <h1>Character Encoding 选项</h1>
+
+    <section>
+      <h2>网站编码规则</h2>
+      <p class="hint">
+        为指定网站固定一个编码。设置后访问该网站时会自动按该编码重新解码，
+        例如某个老站点固定用 GBK 显示更正确。
+      </p>
+      <div class="add-row">
+        <input id="host-input" type="text" placeholder="example.com" spellcheck="false">
+        <select id="charset-select"></select>
+        <button id="add-btn">添加</button>
+      </div>
+      <div id="status" class="status"></div>
+      <ul id="rules-list" class="rules"></ul>
+    </section>
+
+    <section>
+      <h2>支持的编码</h2>
+      <p class="hint">
+        扩展共支持 <strong id="total-count">0</strong> 种编码，覆盖 Unicode、
+        简体中文、繁体中文、日文、韩文、西里尔文、希腊文、阿拉伯文、希伯来文、
+        泰文以及西欧、东欧、土耳其、越南等单字节编码。
+      </p>
+      <div id="catalog" class="catalog"></div>
+    </section>
+  </main>
+
+  <script src="../lib/charsets.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>Character Encoding</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="header">
+    <div class="title-row">
+      <h1>Character Encoding</h1>
+      <button id="options-btn" class="icon-btn" title="选项">⚙</button>
+    </div>
+    <div id="page-info" class="page-info">正在读取页面信息…</div>
+  </header>
+
+  <section id="detection" class="detection hidden">
+    <div class="detection-row">
+      <span class="label">检测结果</span>
+      <span id="detected-charset" class="value">—</span>
+    </div>
+    <div class="detection-row">
+      <span class="label">置信度</span>
+      <span id="detected-confidence" class="value">—</span>
+    </div>
+    <div class="detection-row">
+      <span class="label">页面声明</span>
+      <span id="declared-charset" class="value">—</span>
+    </div>
+    <div class="detection-row">
+      <span class="label">浏览器实际</span>
+      <span id="browser-charset" class="value">—</span>
+    </div>
+    <div id="candidates" class="candidates"></div>
+  </section>
+
+  <div class="search-row">
+    <input id="search" type="search" placeholder="搜索编码…" autocomplete="off" spellcheck="false">
+  </div>
+
+  <div id="encoding-list" class="encoding-list"></div>
+
+  <footer class="footer">
+    <label class="remember">
+      <input type="checkbox" id="remember-site">
+      <span>记住此网站的编码</span>
+    </label>
+    <div class="actions">
+      <button id="apply-btn" class="primary" disabled>应用到当前页面</button>
+      <button id="export-btn" disabled title="把整页转码成所选编码并保存为文件">另存为…</button>
+    </div>
+  </footer>
+
+  <dialog id="export-dialog" class="dialog">
+    <form method="dialog">
+      <h2>转码并保存</h2>
+      <p class="dialog-hint" id="export-hint">把当前页面按所选编码重新编码后保存为 HTML 文件。</p>
+      <label class="field">
+        <span>源编码</span>
+        <select id="export-from"></select>
+      </label>
+      <label class="field">
+        <span>目标编码</span>
+        <select id="export-to"></select>
+      </label>
+      <div id="export-warning" class="warning hidden"></div>
+      <menu>
+        <button value="cancel" class="secondary">取消</button>
+        <button id="export-confirm" value="ok" class="primary">保存</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <script src="../lib/charsets.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
